@@ -1,5 +1,8 @@
 package main.java;
 
+import java.util.Objects;
+
+
 public class Card {
 
     private String name;
@@ -13,15 +16,23 @@ public class Card {
 
 
     @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((name == null) ? 0 : name.hashCode());
+        return result;
+    }
+
+
+    @Override
     public boolean equals(Object comparedObject) {
+        if (this == comparedObject) return true;
 
-        if (!(comparedObject instanceof Card)) { return false; }
-
-        if (this == comparedObject) { return true; }
+        if (!(comparedObject instanceof Card)) return false;
 
         Card comparedCard = (Card) comparedObject;
 
-        return this.name == comparedCard.name;
+        return Objects.equals(name, comparedCard.name);
     }
 
 
