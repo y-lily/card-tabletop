@@ -56,14 +56,14 @@ public class DeckTest {
     @Test
     public void deckContainsAddedCard() {
         deck.add(card);
-        assertTrue(deck.containsCardWithName(card));
+        assertTrue(deck.contains(card));
     }
 
 
     @Test
     public void deckDoesNotContainNotAddedCard() {
         deck.add(card);
-        assertTrue(!deck.containsCardWithName(notAdded));
+        assertTrue(!deck.contains(notAdded));
     }
 
 
@@ -71,7 +71,7 @@ public class DeckTest {
     public void indexOfCardIsIndexOfFirstSuchCard() {
         deck.add(card);
         deck.add(card);
-        assertEquals(0, deck.indexOfCardWithName(card));
+        assertEquals(0, deck.indexOf(card));
     }
 
 
@@ -79,7 +79,7 @@ public class DeckTest {
     public void indexOfCardIsNotChangedWhenAnotherCardAdded() {
         deck.add(first);
         deck.add(second);
-        assertEquals(0, deck.indexOfCardWithName(first));
+        assertEquals(0, deck.indexOf(first));
     }
 
 
@@ -87,7 +87,7 @@ public class DeckTest {
     public void indexOfSecondAddedCardIsOne() {
         deck.add(first);
         deck.add(second);
-        assertEquals(1, deck.indexOfCardWithName(second));
+        assertEquals(1, deck.indexOf(second));
     }
 
 
@@ -95,21 +95,21 @@ public class DeckTest {
     public void indexOfNotAddedCardIsMinusOne() {
         deck.add(first);
         deck.add(second);
-        assertEquals(-1, deck.indexOfCardWithName(notAdded));
+        assertEquals(-1, deck.indexOf(notAdded));
     }
 
 
     @Test
     public void deckContainsCardWithNameOfAddedCard() {
         deck.add(card);
-        assertTrue(deck.containsCardWithName(card.getName()));
+        assertTrue(deck.contains(card.getName()));
     }
 
 
     @Test
     public void deckDoesNotContainCardWithNameOfNotAddedCard() {
         deck.add(card);
-        assertTrue(!deck.containsCardWithName(notAdded.getName()));
+        assertTrue(!deck.contains(notAdded.getName()));
     }
 
 
@@ -117,7 +117,7 @@ public class DeckTest {
     public void indexOfCardWithNameIsIndexOfFirstCardWithSuchName() {
         deck.add(card);
         deck.add(card);
-        assertEquals(0, deck.indexOfCardWithName(card.getName()));
+        assertEquals(0, deck.indexOf(card.getName()));
     }
 
 
@@ -125,7 +125,7 @@ public class DeckTest {
     public void indexOfCardWithNameIsNotChangedWhenAnotherCardAdded() {
         deck.add(first);
         deck.add(second);
-        assertEquals(0, deck.indexOfCardWithName(first.getName()));
+        assertEquals(0, deck.indexOf(first.getName()));
     }
 
 
@@ -133,14 +133,14 @@ public class DeckTest {
     public void indexOfCardWithNameOfSecondAddedCardIsOne() {
         deck.add(first);
         deck.add(second);
-        assertEquals(1, deck.indexOfCardWithName(second.getName()));
+        assertEquals(1, deck.indexOf(second.getName()));
     }
 
 
     @Test
     public void indexOfCardWithNameOfNotAddedCardIsMinusOne() {
         deck.add(card);
-        assertEquals(-1, deck.indexOfCardWithName(notAdded.getName()));
+        assertEquals(-1, deck.indexOf(notAdded.getName()));
     }
 
 
@@ -195,7 +195,7 @@ public class DeckTest {
     public void deckDoesNotContainPoppedCard() {
         deck.add(card);
         deck.pop();
-        assertTrue(!deck.containsCardWithName(card));
+        assertTrue(!deck.contains(card));
     }
 
 
@@ -204,7 +204,7 @@ public class DeckTest {
         deck.add(card);
         deck.add(card);
         deck.pop();
-        assertTrue(deck.containsCardWithName(card));
+        assertTrue(deck.contains(card));
     }
 
 
@@ -213,7 +213,7 @@ public class DeckTest {
         deck.add(first);
         deck.add(second);
         deck.pop();
-        assertTrue(deck.containsCardWithName(first));
+        assertTrue(deck.contains(first));
     }
 
 
@@ -245,7 +245,7 @@ public class DeckTest {
         deck.add(first);
         deck.add(second);
         deck.remove(0);
-        assertTrue(!deck.containsCardWithName(first));
+        assertTrue(!deck.contains(first));
     }
 
 
@@ -254,7 +254,7 @@ public class DeckTest {
         deck.add(card);
         deck.add(card);
         deck.remove(0);
-        assertTrue(deck.containsCardWithName(card));
+        assertTrue(deck.contains(card));
     }
 
 
@@ -288,7 +288,7 @@ public class DeckTest {
         deck.add(first);
         deck.add(second);
         deck.add(1, card);
-        assertEquals(1, deck.indexOfCardWithName(card));
+        assertEquals(1, deck.indexOf(card));
     }
 
 
@@ -297,7 +297,7 @@ public class DeckTest {
         deck.add(first);
         deck.add(second);
         deck.add(1, card);
-        assertEquals(0, deck.indexOfCardWithName(first));
+        assertEquals(0, deck.indexOf(first));
     }
 
 
@@ -306,7 +306,7 @@ public class DeckTest {
         deck.add(first);
         deck.add(second);
         deck.add(1, card);
-        assertEquals(2, deck.indexOfCardWithName(second));
+        assertEquals(2, deck.indexOf(second));
     }
 
 
@@ -336,8 +336,8 @@ public class DeckTest {
         deck.add(card);
         deck.add(card);
         deck.add(card);
-        assertTrue(deck.indexOfCardWithName(first) == 0);
+        assertTrue(deck.indexOf(first) == 0);
         deck.shuffle();
-        assertTrue(!(deck.indexOfCardWithName(first) == 0));
+        assertTrue(!(deck.indexOf(first) == 0));
     }
 }

@@ -27,23 +27,19 @@ public class Deck implements Iterable<Card> {
     public void clear() { cards.clear(); }
 
 
-    public boolean containsCardWithName(Card card) {
-        return cards.contains(card);
-    }
+    public boolean contains(Card card) { return cards.contains(card); }
 
 
-    public boolean containsCardWithName(String cardName) {
-        return indexOfCardWithName(cardName) != -1;
-    }
+    public boolean contains(String cardName) { return indexOf(cardName) != -1; }
 
 
     public Card get(int index) { return cards.get(index); }
 
 
-    public int indexOfCardWithName(Card card) { return cards.indexOf(card); }
+    public int indexOf(Card card) { return cards.indexOf(card); }
 
 
-    public int indexOfCardWithName(String cardName) {
+    public int indexOf(String cardName) {
 
         for (int i = 0; i < cards.size(); ++i) {
 
