@@ -8,14 +8,10 @@ import java.util.List;
 
 public class Deck implements Iterable<Card> {
 
-    private String name;
     private List<Card> cards;
 
 
-    public Deck(String name) {
-        this.name = name;
-        cards = new ArrayList<>();
-    }
+    public Deck() { cards = new ArrayList<>(); }
 
 
     @Override
@@ -31,7 +27,9 @@ public class Deck implements Iterable<Card> {
     public void clear() { cards.clear(); }
 
 
-    public boolean contains(Card card) { return cards.contains(card); }
+    public boolean containsCardWithName(Card card) {
+        return cards.contains(card);
+    }
 
 
     public boolean containsCardWithName(String cardName) {
@@ -42,10 +40,7 @@ public class Deck implements Iterable<Card> {
     public Card get(int index) { return cards.get(index); }
 
 
-    public String getName() { return name; }
-
-
-    public int indexOf(Card card) { return cards.indexOf(card); }
+    public int indexOfCardWithName(Card card) { return cards.indexOf(card); }
 
 
     public int indexOfCardWithName(String cardName) {
